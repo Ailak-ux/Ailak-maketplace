@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#08795b" />
+  <meta name="description" content="Ailak Marketplace - Achetez et vendez facilement en Guinée." />
+  <title>Ailak Marketplace</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#accueil" aria-label="Accueil Ailak"><span>A</span>Ailak</a>
+    <button class="icon-btn" id="menuBtn" aria-label="Ouvrir le menu">☰</button>
+    <nav id="nav">
+      <a href="#accueil">Accueil</a><a href="#boutique">Boutique</a><a href="#vendeur">Vendre</a><a href="#contact">Contact</a>
+    </nav>
+    <button class="cart-btn" id="cartBtn">Panier <b id="cartCount">0</b></button>
+  </header>
+
+  <main>
+    <section class="hero" id="accueil">
+      <div><span class="tag">Marketplace guinéenne</span><h1>Achetez mieux.<br><em>Vendez plus.</em></h1>
+        <p>Produits pour la maison, mode et accessoires. Livraison à Conakry et paiement à la livraison.</p>
+        <div class="actions"><a class="primary" href="#boutique">Voir les produits</a><a class="secondary" href="#vendeur">Devenir vendeur</a></div>
+        <div class="trust"><span>✓ Prix en GNF</span><span>✓ Commande WhatsApp</span><span>✓ Livraison locale</span></div>
+      </div>
+      <div class="hero-card"><div class="big-emoji">🛍️</div><strong>Ailak Marketplace</strong><small>Tout ce qu’il vous faut, au même endroit.</small></div>
+    </section>
+
+    <section class="section" id="boutique">
+      <div class="section-head"><div><span class="eyebrow">Notre sélection</span><h2>Produits populaires</h2></div>
+        <input id="search" type="search" placeholder="Rechercher un produit…" />
+      </div>
+      <div class="chips" id="categories"></div>
+      <div class="products" id="products"></div>
+    </section>
+
+    <section class="seller-section" id="vendeur">
+      <div><span class="eyebrow light">Espace vendeur</span><h2>Créez votre boutique sur Ailak</h2><p>Présentez vos produits et recevez les commandes directement sur WhatsApp.</p>
+        <ul><li>Ajout et modification de produits</li><li>Photos, prix, stock et catégories</li><li>Suivi simple des commandes</li></ul>
+      </div>
+      <form id="sellerForm" class="seller-form"><h3>Demande vendeur</h3><input required name="name" placeholder="Nom complet" /><input required name="phone" type="tel" placeholder="Téléphone WhatsApp" /><input required name="shop" placeholder="Nom de la boutique" /><button class="primary" type="submit">Envoyer la demande</button><small id="sellerMsg"></small></form>
+    </section>
+
+    <section class="section manager">
+      <div class="section-head"><div><span class="eyebrow">Gestion locale</span><h2>Mes produits</h2></div><button class="secondary" id="toggleManager">Afficher la gestion</button></div>
+      <div id="managerPanel" hidden>
+        <p class="notice">Cette gestion fonctionne uniquement sur cet appareil dans la version de démonstration.</p>
+        <form id="productForm" class="product-form">
+          <input type="hidden" name="id" /><input required name="name" placeholder="Nom du produit" /><input required name="price" type="number" min="0" placeholder="Prix en GNF" />
+          <input required name="stock" type="number" min="0" placeholder="Stock" /><select required name="category"><option>Maison</option><option>Décoration</option><option>Mode</option><option>Électronique</option><option>Autres</option></select>
+          <input name="image" type="file" accept="image/*" /><textarea name="description" placeholder="Description"></textarea><button class="primary" type="submit">Enregistrer le produit</button><button class="secondary" type="reset">Annuler</button>
+        </form><div id="manageList" class="manage-list"></div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact"><div><h2>Besoin d’aide ?</h2><p>Notre équipe répond à vos questions sur WhatsApp.</p></div><a class="primary white" href="https://wa.me/224622261904" target="_blank" rel="noopener">Écrire sur WhatsApp</a></section>
+  </main>
+
+  <footer><a class="brand" href="#accueil"><span>A</span>Ailak</a><p>Marketplace locale • Conakry, Guinée</p><small>© 2026 Ailakshop. Tous droits réservés.</small></footer>
+
+  <dialog id="cartDialog"><div class="dialog-head"><h2>Votre panier</h2><button class="icon-btn" id="closeCart">×</button></div><div id="cartItems"></div><div class="total"><span>Total</span><strong id="cartTotal">0 GNF</strong></div><button class="primary full" id="orderBtn">Commander sur WhatsApp</button></dialog>
+  <div id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>

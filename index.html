@@ -43,15 +43,33 @@
       <form id="sellerForm" class="seller-form"><h3>Demande vendeur</h3><input required name="name" placeholder="Nom complet" /><input required name="phone" type="tel" placeholder="Téléphone WhatsApp" /><input required name="shop" placeholder="Nom de la boutique" /><button class="primary" type="submit">Envoyer la demande</button><small id="sellerMsg"></small></form>
     </section>
 
-    <section class="section manager">
-      <div class="section-head"><div><span class="eyebrow">Gestion locale</span><h2>Mes produits</h2></div><button class="secondary" id="toggleManager">Afficher la gestion</button></div>
+    <section class="section manager" id="espace-prive">
+      <div class="section-head"><div><span class="eyebrow">Accès sécurisé</span><h2>Espace privé vendeur</h2></div><button class="secondary" id="toggleManager">Se connecter</button></div>
       <div id="managerPanel" hidden>
-        <p class="notice">Cette gestion fonctionne uniquement sur cet appareil dans la version de démonstration.</p>
-        <form id="productForm" class="product-form">
-          <input type="hidden" name="id" /><input required name="name" placeholder="Nom du produit" /><input required name="price" type="number" min="0" placeholder="Prix en GNF" />
-          <input required name="stock" type="number" min="0" placeholder="Stock" /><select required name="category"><option>Maison</option><option>Décoration</option><option>Mode</option><option>Électronique</option><option>Autres</option></select>
-          <input name="image" type="file" accept="image/*" /><textarea name="description" placeholder="Description"></textarea><button class="primary" type="submit">Enregistrer le produit</button><button class="secondary" type="reset">Annuler</button>
-        </form><div id="manageList" class="manage-list"></div>
+        <form id="loginForm" class="login-card">
+          <h3>Connexion administrateur ou vendeur</h3>
+          <p>Seules les personnes autorisées peuvent gérer une boutique.</p>
+          <input required name="email" type="email" placeholder="Adresse e-mail" autocomplete="username" />
+          <input required name="password" type="password" placeholder="Mot de passe" autocomplete="current-password" />
+          <button class="primary" type="submit">Se connecter</button><small id="loginMsg"></small>
+        </form>
+        <div id="privatePanel" hidden>
+          <div class="session-bar"><div><strong id="privateTitle">Ma boutique</strong><small id="privateEmail"></small></div><button class="secondary" id="logoutBtn" type="button">Se déconnecter</button></div>
+          <div id="shopSetup" hidden>
+            <p class="notice">Créez votre boutique. Elle sera visible après validation par Ailakshop.</p>
+            <form id="shopForm" class="product-form"><input required name="name" placeholder="Nom de la boutique" /><input required name="phone" type="tel" placeholder="Téléphone WhatsApp" /><input name="city" value="Conakry" placeholder="Ville" /><textarea name="description" placeholder="Description de la boutique"></textarea><button class="primary" type="submit">Créer ma boutique</button></form>
+          </div>
+          <div id="adminPanel" class="admin-panel" hidden><h3>Boutiques à valider</h3><div id="approvalList" class="manage-list"></div></div>
+          <div id="productManager" hidden>
+            <p class="notice" id="shopStatus"></p>
+            <h3>Ajouter ou modifier un produit</h3>
+            <form id="productForm" class="product-form">
+              <input type="hidden" name="id" /><input required name="name" placeholder="Nom du produit" /><input required name="price" type="number" min="0" placeholder="Prix en GNF" />
+              <input required name="stock" type="number" min="0" placeholder="Stock" /><select required name="category"><option>Maison</option><option>Décoration</option><option>Mode</option><option>Électronique</option><option>Autres</option></select>
+              <input name="image" type="file" accept="image/jpeg,image/png,image/webp" /><textarea name="description" placeholder="Description"></textarea><button class="primary" type="submit">Enregistrer le produit</button><button class="secondary" type="reset">Annuler</button>
+            </form><div id="manageList" class="manage-list"></div>
+          </div>
+        </div>
       </div>
     </section>
 
